@@ -79,10 +79,10 @@ This project focuses on processing depth data from Intel RealSense cameras to de
 ## Installation
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/realsense-pointcloud-processing.git
+git clone https://github.com/Parthsanghavi31/Centroid-Based-Object-Pose-Estimation-with-Ground-Plane-Normal-Vector-Analysis.git
 
 # Navigate to the project directory
-cd realsense-pointcloud-processing
+cd Centroid-Based-Object-Pose-Estimation-with-Ground-Plane-Normal-Vector-Analysis
 
 # Create a build directory and navigate to it
 mkdir build && cd build
@@ -97,7 +97,6 @@ make
 # Run the main executable
 ./grasp_synthesis
 ```
-
 - Use the GUI to select a point of interest in the real-time depth image. The program will process the depth data, detect and segment objects, and display the results in a 3D visualization window.
 
 ## Results
