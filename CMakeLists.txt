@@ -11,7 +11,6 @@ find_package(Threads REQUIRED)
 find_package(Eigen3 3.3 REQUIRED NO_MODULE)
 find_package(ryml REQUIRED)
 link_directories(${CMAKE_PREFIX_PATH}/lib) #loguru
-
 find_package(PCL CONFIG REQUIRED)
 
 # Realsense
@@ -26,9 +25,9 @@ else()
 	set(RS_LIB "${LIBS_PREFIX}/lib")
 	set(RS_INC "${LIBS_PREFIX}/include")
 endif()
+
 find_library(REALSENSE2_FOUND realsense2 HINTS ${RS_LIB} REQUIRED)
 message(STATUS "REALSENSE2_FOUND=${REALSENSE2_FOUND}")
-# find_package(realsense2 REQUIRED) # This method is convenient but does not work on Windows, and finds the wrong librealsense on the robot
 
 # OpenCV
 if (WIN32)
