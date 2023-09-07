@@ -15,7 +15,7 @@ This project focuses on processing depth data from Intel RealSense cameras to de
 - [Acknowledgments](#acknowledgments)
 
 ## Introduction
-- Tailored for environments with minimal clutter, this method focuses on estimating the centroid of a singular object lying on a plane. 
+- To estimate the 6D pose of an object in a minimally cluttered environment by determining the centroid of the object and the direction of the ground plane with respect to the object.
 - Additionally, it determines the ground plane's normal vector, providing essential insights for manipulator trajectory planning, ensuring minimal surrounding distractions.
 
 ## Features
@@ -99,6 +99,9 @@ make
 ```
 
 - Use the GUI to select a point of interest in the real-time depth image. The program will process the depth data, detect and segment objects, and display the results in a 3D visualization window.
+
+## Results
+- All the Results can be Found in the Report on Grasp Synthesis Project
 
 ## Contributing
 - Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
