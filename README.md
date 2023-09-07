@@ -15,7 +15,8 @@ This project focuses on processing depth data from Intel RealSense cameras to de
 - [Acknowledgments](#acknowledgments)
 
 ## Introduction
-Ghost Robotics aims to revolutionize the robotics industry with cutting-edge technologies. This project aligns with that vision by leveraging depth data for object detection and segmentation, which can be crucial for tasks like navigation, obstacle avoidance, and object manipulation.
+- This Project is tailored for environments with minimal clutter, this method focuses on estimating the centroid of a singular object lying on a plane. 
+- Additionally, it determines the ground plane's normal vector, providing essential insights for manipulator trajectory planning, ensuring minimal surrounding distractions.
 
 ## Features
 - **Real-time Depth Data Processing**: Extracts depth data from Intel RealSense cameras in real-time.
