@@ -5,7 +5,7 @@ This project focuses on processing depth data from Intel RealSense cameras to de
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
-- [Detail_Project_Breakdown](#Detailed Project Breakdown)
+- [DetailedProjectBreakdown](#Detailed Project Breakdown)
 - [Prerequisites](#prerequisites)
 - [Dependencies](#dependencies)
 - [Installation](#installation)
