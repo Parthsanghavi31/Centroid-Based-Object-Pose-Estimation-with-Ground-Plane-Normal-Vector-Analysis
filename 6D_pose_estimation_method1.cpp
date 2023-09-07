@@ -1,6 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
 #pragma warning(disable:4996)
-
 #include <iostream>
 #include <vector>
 #include <chrono>
@@ -146,8 +145,6 @@ void ransac_thread(int iterations, const pcl::PointCloud<pcl::PointXYZ>::Ptr& cl
     }
 }
 
-
-
 PlaneFitResult fit(const pcl::PointCloud<pcl::PointXYZ>::Ptr& cloud, float thresh = 1e-2, int maxIteration = 150) {
     std::vector<std::thread> threads;
     std::vector<Result> results(NUM_THREADS, {Eigen::Vector4f::Zero(), {}});
@@ -184,12 +181,6 @@ int* rand_rgb() {
     rgb[2] = rand() % 255;
     return rgb;
 }
-
-
-
-///////////////////////////////////////////////////////////////////////////////
-
-
 
 int main() 
 {
@@ -504,7 +495,6 @@ int main()
             }
  
             // Display the normal of the RANSAC plane
-            // Eigen::Vector4f centroid = rg_centroids[closest_rg_cluster_idx]; // Assuming this is the centroid you want to use as the starting point
             Eigen::Vector3f plane_normal(bestPlane[0], bestPlane[1], bestPlane[2]);
 
             // Check the direction of the normal
@@ -536,7 +526,6 @@ int main()
                 viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 2, "region_growing");
             }
             
-
             // 1. RANSAC Plane Fitting
             pcl::ModelCoefficients::Ptr coefficients(new pcl::ModelCoefficients());
             pcl::PointIndices::Ptr inliers(new pcl::PointIndices());
@@ -551,7 +540,6 @@ int main()
 
             if (inliers->indices.size() == 0) {
                 PCL_ERROR("Could not estimate a planar model for the given dataset.");
-                
             }
 
             // 2. Get the Unit Normal
@@ -570,15 +558,12 @@ int main()
             viewer->addPointCloud<pcl::PointXYZ>(rg_clusters[closest_rg_cluster_idx], cluster_color, "closest_cluster");
             viewer->setPointCloudRenderingProperties(pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "closest_cluster");
 
-            
-
             pcl::PointXYZ start(pushed_centroid[0], pushed_centroid[1], pushed_centroid[2]);
 
             // Computing the orthogonal basis vectors
             Eigen::Vector3f v1 = normal.normalized(); // Ensure it's a unit vector
             Eigen::Vector3f g = Eigen::Vector3f(plane_normal[0], plane_normal[1], plane_normal[2]).normalized(); // Ensure it's a unit vector
             Eigen::Vector3f v2 = v1.cross(g).normalized(); // Ensure it's a unit vector
-
 
             // Visualizing the basis vectors
             float arrow_length = 0.5;  // You can adjust this as needed
@@ -590,7 +575,6 @@ int main()
             viewer->addArrow(end_g, start, 1.0, 1.0, 0.0, false, "g_arrow");   // g in green
             viewer->addArrow(end_v2, start, 0.0, 0.0, 1.0, false, "v2_arrow"); // v2 in blue
 
-
             // Use spinOnce in a loop for continuous update
             while (!viewer->wasStopped()) {
                 viewer->spinOnce(100); // Update every 100 milliseconds
@@ -599,13 +583,12 @@ int main()
            std::cout<< "Plane Normal"<< plane_normal<< endl;
         }
     }
+
 // End time
 auto stop1 = std::chrono::high_resolution_clock::now();
 auto duration6 = std::chrono::duration_cast<std::chrono::microseconds>(stop1 - start1);
 std::cout << "Time taken by function: " << duration6.count() << " microseconds" << std::endl;
 cv::destroyAllWindows();
 pipe.stop();
-
 return 0;
-
 }
