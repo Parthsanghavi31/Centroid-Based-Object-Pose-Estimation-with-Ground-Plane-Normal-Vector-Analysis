@@ -15,7 +15,7 @@ This project focuses on processing depth data from Intel RealSense cameras to de
 - [Acknowledgments](#acknowledgments)
 
 ## Introduction
-- This Project is tailored for environments with minimal clutter, this method focuses on estimating the centroid of a singular object lying on a plane. 
+- Tailored for environments with minimal clutter, this method focuses on estimating the centroid of a singular object lying on a plane. 
 - Additionally, it determines the ground plane's normal vector, providing essential insights for manipulator trajectory planning, ensuring minimal surrounding distractions.
 
 ## Features
